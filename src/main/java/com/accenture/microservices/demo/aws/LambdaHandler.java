@@ -25,6 +25,7 @@ public class LambdaHandler implements RequestStreamHandler {
             throw new RuntimeException("Could not initialize Spring Boot application", e);
         }
     }
+
     @Override
     public void handleRequest(InputStream inputStream, OutputStream outputStream, Context context) throws IOException {
         handler.proxyStream(inputStream, outputStream, context);
