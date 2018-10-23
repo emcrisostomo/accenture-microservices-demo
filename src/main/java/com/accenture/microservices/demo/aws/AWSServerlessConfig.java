@@ -8,7 +8,8 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 
 @Configuration
 @Profile(Profiles.PROFILE_AWS_SERVERLESS)
-public class AWSServerlessConfig {
+public class AWSServerlessConfig
+{
 
     /*
      * optimization - avoids creating default exception resolvers; not required as the serverless container handles
@@ -18,7 +19,8 @@ public class AWSServerlessConfig {
      * an expensive ObjectMapper instance.
      */
     @Bean
-    public HandlerExceptionResolver handlerExceptionResolver() {
+    public HandlerExceptionResolver handlerExceptionResolver()
+    {
         return (request, response, handler, ex) -> null;
     }
 }

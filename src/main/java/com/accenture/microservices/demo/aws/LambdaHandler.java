@@ -16,7 +16,6 @@ import static com.accenture.microservices.demo.Profiles.PROFILE_AWS_SERVERLESS;
 
 public class LambdaHandler implements RequestStreamHandler
 {
-
     private static SpringBootLambdaContainerHandler<AwsProxyRequest, AwsProxyResponse> handler;
 
     static
@@ -24,7 +23,9 @@ public class LambdaHandler implements RequestStreamHandler
         try
         {
             handler = SpringBootLambdaContainerHandler.getAwsProxyHandler(DemoApplication.class, PROFILE_AWS_SERVERLESS);
-        } catch (ContainerInitializationException e) {
+        }
+        catch (ContainerInitializationException e)
+        {
             // if we fail here. We re-throw the exception to force another cold start
             e.printStackTrace();
             throw new RuntimeException("Could not initialize Spring Boot application", e);
