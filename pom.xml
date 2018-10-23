@@ -19,7 +19,7 @@
     </parent>
 
     <properties>
-        <aws-serverless-java-container-spring>1.1.4</aws-serverless-java-container-spring>
+        <aws-serverless-java-container-spring>[0.1,)</aws-serverless-java-container-spring>
         <dockerfile-maven.version>1.4.7</dockerfile-maven.version>
         <java.version>1.8</java.version>
         <javax.activation-api.version>1.2.0</javax.activation-api.version>
