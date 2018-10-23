@@ -13,7 +13,7 @@ Resources:
     Properties:
       Handler: com.amazonaws.serverless.sample.springboot.StreamLambdaHandler::handleRequest
       Runtime: java8
-      CodeUri: target/accenture-microservices-demo-0.0.1.SNAPSHOT.jar
+      CodeUri: target/accenture-microservices-demo-0.0.1-SNAPSHOT.jar
       MemorySize: 2048
       Policies: AWSLambdaBasicExecutionRole
       Timeout: 60
