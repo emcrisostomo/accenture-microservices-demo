@@ -14,12 +14,15 @@ import java.io.OutputStream;
 
 import static com.accenture.microservices.demo.Profiles.PROFILE_AWS_SERVERLESS;
 
-public class LambdaHandler implements RequestStreamHandler {
+public class LambdaHandler implements RequestStreamHandler
+{
 
     private static SpringBootLambdaContainerHandler<AwsProxyRequest, AwsProxyResponse> handler;
 
-    static {
-        try {
+    static
+    {
+        try
+        {
             handler = SpringBootLambdaContainerHandler.getAwsProxyHandler(DemoApplication.class, PROFILE_AWS_SERVERLESS);
         } catch (ContainerInitializationException e) {
             // if we fail here. We re-throw the exception to force another cold start
@@ -29,7 +32,8 @@ public class LambdaHandler implements RequestStreamHandler {
     }
 
     @Override
-    public void handleRequest(InputStream inputStream, OutputStream outputStream, Context context) throws IOException {
+    public void handleRequest(InputStream inputStream, OutputStream outputStream, Context context) throws IOException
+    {
         handler.proxyStream(inputStream, outputStream, context);
 
         // just in case it wasn't closed by the mapper
