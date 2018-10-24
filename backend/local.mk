@@ -3,16 +3,20 @@ PROFILE_SPRING_BOOT= spring-boot
 PROFILE_AWS_LAMBDA=  aws-serverless
 PROFILE=
 
+.PHONY: check-profile
+check-profile:
+	@if ! test -n "$(PROFILE)" ; then printf "%s\n" "PROFILE has not been set" >&2 ; false ; fi
+
 .PHONY: clean-profile
-clean-profile:
+clean-profile: check-profile
 	$(MVN) -P $(PROFILE) clean
 
 .PHONY: build-profile
-build-profile:
+build-profile: check-profile
 	$(MVN) -P $(PROFILE) compile
 
 .PHONY: package-profile
-package-profile:
+package-profile: check-profile
 	$(MVN) -P $(PROFILE) -DskipTests=true package
 
 .PHONY: clean-spring-boot
