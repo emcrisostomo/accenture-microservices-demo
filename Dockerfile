@@ -1,4 +1,4 @@
-FROM openjdk:10-jdk-slim
+FROM openjdk:11-jdk-slim
 MAINTAINER Enrico M. Crisostomo <enrico.m.crisostomo@gmail.com>
 
 ARG JAR_FILE
