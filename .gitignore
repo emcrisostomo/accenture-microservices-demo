@@ -1,6 +1,7 @@
 **/target/
 !.mvn/wrapper/maven-wrapper.jar
 output-sam.yaml
+.elasticbeanstalk/
 
 ### STS ###
 .apt_generated
