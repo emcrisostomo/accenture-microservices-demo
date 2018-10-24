@@ -42,3 +42,13 @@ build-aws-lambda: build-profile
 .PHONY: package-aws-lambda
 package-aws-lambda: PROFILE=$(PROFILE_AWS_LAMBDA)
 package-aws-lambda: package-profile
+
+.PHONY: build-spring-boot-docker-image
+build-spring-boot-docker-image: PROFILE=$(PROFILE_SPRING_BOOT)
+build-spring-boot-docker-image:
+	$(MVN) -P $(PROFILE) dockerfile:build
+
+.PHONY: push-spring-boot-docker-image
+push-spring-boot-docker-image: PROFILE=$(PROFILE_SPRING_BOOT)
+push-spring-boot-docker-image:
+	$(MVN) -P $(PROFILE) dockerfile:push
