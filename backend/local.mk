@@ -1,21 +1,40 @@
 MVN=                 ./mvnw
 PROFILE_SPRING_BOOT= spring-boot
 PROFILE_AWS_LAMBDA=  aws-serverless
+PROFILE=
 
-clean-spring-boot:
-	$(MVN) -P $(PROFILE_SPRING_BOOT) clean
+.PHONY: clean-profile
+clean-profile:
+	$(MVN) -P $(PROFILE) clean
 
-build-spring-boot:
-	$(MVN) -P $(PROFILE_SPRING_BOOT) compile
+.PHONY: build-profile
+build-profile:
+	$(MVN) -P $(PROFILE) compile
 
-package-spring-boot:
-	$(MVN) -P $(PROFILE_SPRING_BOOT) -DskipTests=true package
+.PHONY: package-profile
+package-profile:
+	$(MVN) -P $(PROFILE) -DskipTests=true package
 
-clean-aws-lambda:
-	$(MVN) -P $(PROFILE_AWS_LAMBDA) clean
+.PHONY: clean-spring-boot
+clean-spring-boot: PROFILE=$(PROFILE_SPRING_BOOT)
+clean-spring-boot: clean-profile
 
-build-aws-lambda:
-	$(MVN) -P $(PROFILE_AWS_LAMBDA) compile
+.PHONY: build-spring-boot
+build-spring-boot: PROFILE=$(PROFILE_SPRING_BOOT)
+build-spring-boot: build-profile
 
-package-aws-lambda:
-	$(MVN) -P $(PROFILE_AWS_LAMBDA) -DskipTests=true package
+.PHONY: package-spring-boot
+package-spring-boot: PROFILE=$(PROFILE_SPRING_BOOT)
+package-spring-boot: package-profile
+
+.PHONY: clean-aws-lambda
+clean-aws-lambda: PROFILE=$(PROFILE_AWS_LAMBDA)
+clean-aws-lambda: clean-profile
+
+.PHONY: build-aws-lambda
+build-aws-lambda: PROFILE=$(PROFILE_AWS_LAMBDA)
+build-aws-lambda: build-profile
+
+.PHONY: package-aws-lambda
+package-aws-lambda: PROFILE=$(PROFILE_AWS_LAMBDA)
+package-aws-lambda: package-profile
