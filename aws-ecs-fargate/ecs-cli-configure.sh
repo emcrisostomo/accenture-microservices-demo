@@ -2,9 +2,9 @@
 
 set -e
 
-CLUSTER_NAME=microservices-demo
-AWS_ACCESS_KEY_ID=$(cat ~/.aws/credentials | grep ^aws_access_key_id | awk -F = '{print $2;'})
-AWS_SECRET_ACCESS_KEY=$(cat ~/.aws/credentials | grep ^aws_secret_access_key | awk -F = '{print $2;'})
+PROG_DIR=$(dirname $0)
+
+. ${PROG_DIR}/ecs-cli.conf
 
 ecs-cli configure \
   --region eu-east-1 \
