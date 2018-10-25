@@ -7,4 +7,4 @@ PROG_DIR=$(dirname $0)
 
 . ${PROG_DIR}/ecs-cli.conf
 
-aws ec2 authorize-security-group-ingress --group-id ${SG_ID} --protocol tcp --port 80 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-id ${SG_ID} --protocol tcp --port 8080 --cidr 0.0.0.0/0
