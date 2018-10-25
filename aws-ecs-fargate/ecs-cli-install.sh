@@ -8,3 +8,5 @@ INSTALL_PATH=/usr/local/bin/ecs-cli
 
 curl -o ${INSTALL_PATH} ${LINUX_URL}
 chmod +x ${INSTALL_PATH}
+
+${INSTALL_PATH} --version
