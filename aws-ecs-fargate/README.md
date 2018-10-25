@@ -1,0 +1,1 @@
+[ecs-cli-tutorial]: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_tutorial_fargate.html
