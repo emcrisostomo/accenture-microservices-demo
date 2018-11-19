@@ -12,7 +12,7 @@ services:
           cpus: "1"
           memory: 1024M
       restart_policy:
-        condition: on-failure
+        condition: any
         delay: 5s
         max_attempts: 5
         window: 10s
